@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sweet Start - Complete Website</title>
+    
+    <style>
+        /* General Body and Main Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            color: #333; 
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        /* Navigation Styling */
+        nav {
+            background-color: #222;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center; 
+        }
+        nav a {
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            display: inline-block; 
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #ff6347;
+            transform: scale(1.05);
+        }
+
+        /* Banner/Home Section Styling */
+        .banner {
+            background: url('https://via.placeholder.com/1600x600/ff6347/ffffff?text=Sweet+Start+Banner') center no-repeat;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+        }
+        .banner h2 {
+            font-size: 3em;
+            margin: 0 0 10px;
+        }
+        .banner p {
+            font-size: 1.5em;
+        }
+        .we {
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.4s ease;
+        }
+        .we:hover {
+            transform: scale(1.02);
+        }
+        .points {
+            text-align: left;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+            margin-top: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .points br {
+            display: block;
+            margin: 5px 0;
+        }
+
+        /* Cakes Section Styling */
+        .cakes-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 40px 0;
+            background-color: #f4f4f4;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .cake {
+            width: 280px; 
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 8px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .cake:hover {
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .cake img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            transition: transform 0.4s ease;
+        }
+        .cake:hover img {
+            transform: scale(1.1);
+        }
+        .cake h3 {
+            margin: 15px 0;
+            color: #ff6347;
+            padding: 0 10px;
+        }
+        .cake p {
+            padding: 0 15px;
+            font-size: 1em;
+            color: #555;
+            flex-grow: 1; 
+        }
+        .cake ul {
+            list-style-type: none;
+            padding: 0 20px;
+            margin: 10px 0;
+            color: #555;
+            font-size: 0.9em;
+            text-align: left;
+        }
+        .order-button {
+            background-color: #ff6347;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: block; 
+            margin: 15px;
+        }
+        .order-button:hover {
+            background-color: #e03e1e;
+            transform: scale(1.05);
+        }
+
+        /* Review Section Styling (from review.html) */
+        .review-section-container {
+            padding: 40px 20px;
+            background-color: #f0f0f0;
+        }
+        .review-container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff0f5;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to right, #ffe5ec, #ffc2d1);
+        }
+        .review-container h2 {
+            text-align: center;
+            font-size: 28px;
+            color: #d6336c;
+            margin-bottom: 40px;
+        }
+        .review {
+            border-bottom: 2px dashed #f3a6c0;
+            padding: 20px 0;
+            transition: background 0.3s;
+        }
+        .review:last-child {
+            border-bottom: none;
+        }
+        .review:hover {
+            background: #fff8fc;
+        }
+        .reviewer {
+            font-weight: 600;
+            font-size: 18px;
+            color: #c9184a;
+        }
+        .stars {
+            display: inline-block;
+            color: #ffb400;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .comment {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Review Form and Contact Section Styling */
+        .order-section, .contact-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .contact-section {
+            background-color: #222;
+            color: white;
+        }
+        .contact-form input, .contact-form textarea, 
+        .order-form input, .order-form textarea {
+            width: 90%;
+            max-width: 400px;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            transition: box-shadow 0.3s ease;
+        }
+        .contact-form button, .order-form button {
+            background-color: #ff6347;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .contact-form button:hover, .order-form button:hover {
+            background-color: #e03e1e;
+            transform: translateY(-3px);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .cake {
+                width: 80%;
+                max-width: 350px;
+            }
+            .banner h2 {
+                font-size: 2em;
+            }
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Sweet Start</h1>
+        <p>Delicious Cakes and Brownies for Every Occasion</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#cakes">Our Cakes</a>
+        <a href="#reviews-section">Customer Reviews</a>
+        <a href="#order">Review Bar</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="banner" id="home">
+        <h2>Indulge in the Best Cakes in Town</h2>
+        <p>Freshly Baked | Custom Orders | Delivered to Your Doorstep</p>
+    </section>
+    
+    <div class="intro-points">
+        <p style=" color:#00e2bc; text-align: center; " class="we" >Sweet Start is your destination for exquisite cakes. Discover artfully crafted treats perfect for every celebration. Indulge in sweetness, elegance, and unforgettable flavor—one slice at a time.</p>
+        <h1 class="points">
+            • 🎂 Every Slice Tells a Story – From birthdays to weddings, our cakes are crafted to make your moments unforgettable. <br>
+            • 	🍓 Fresh Ingredients, Heavenly Taste – We bake with love and the finest ingredients to deliver flavor that melts in your mouth.<br>
+            • 	🎉 Custom Creations for Every Occasion – Whether it’s quirky, elegant, or themed, we design cakes that match your celebration.<br>
+            • 	💝 Sweet Start, Sweeter Memories – Our cakes aren't just desserts—they’re the centerpiece of your happiest days.<br>
+            • 	🛒 Order Online, Delight Delivered – Easy browsing, secure checkout, and doorstep delivery make cake shopping a breeze.<br>
+            • 	🌟 Rated #1 for Taste & Design – Join thousands of happy customers who trust Sweet Start for their sweetest celebrations.
+        </h1>
+    </div>
+
+    <section id="cakes" class="cakes-section">
+        <div class="cake">
+            <img src="https://preppykitchen.com/wp-content/uploads/2019/06/Chocolate-cake-recipe-1200a.jpg" alt="Chocolate Cake">
+            <h3>Chocolate Cake</h3>
+            <p>Rich and creamy chocolate cake with decadent frosting</p>
+            <a href="order.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://tmbidigitalassetsazure.blob.core.windows.net/toh/GoogleImagesPostCard/Vanilla-Cake-with-Vanilla-Buttercream-Frosting_EXPS_FT20_257225_F_0813_1.jpg" alt="Vanilla Cake">
+            <h3>Vanilla Cake</h3>
+            <p>Fluffy and moist vanilla cake with a smooth cream filling</p>
+            <a href="vanilla cake.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://chelsweets.com/wp-content/uploads/2021/01/higher-angle-of-finished-cake-scaled.jpg" alt="Strawberry Cake">
+            <h3>Strawberry Cake</h3>
+            <p>Fresh strawberries layered between a light sponge cake</p>
+            <a href="strawberry.html" class="order-button">Order Now</a>
+        </div>
+        
+        <div class="cake">
+            <img src="https://i.pinimg.com/originals/33/c9/f7/33c9f7ecb35642043318a7c80c58c489.jpg" alt="Red Velvet Cake">
+            <h3>Red Velvet Cake</h3>
+            <ul>
+                <li>Velvety red sponge with a hint of cocoa for depth</li>
+                <li>Cream cheese frosting that's tangy and smooth</li>
+            </ul>
+            <a href="Red Velvet Cake.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://zhangcatherine.com/wp-content/uploads/2023/01/12001200-8.jpg" alt="Black Forest Cake">
+            <h3>Black Forest Cake</h3>
+            <ul>
+                <li>Layers of chocolate sponge soaked in cherry syrup</li>
+                <li>Fresh whipped cream and cherries for a fruity twist</li>
+            </ul>
+            <a href="Black Forest Cake.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://omgchocolatedesserts.com/wp-content/uploads/2016/03/Pineapple-Upside-Down-Cake-2.jpg" alt="Pineapple Cake">
+            <h3>Pineapple Cake</h3>
+            <ul>
+                <li>Moist sponge infused with tropical pineapple essence</li>
+                <li>Layered with fresh pineapple chunks and light cream</li>
+            </ul>
+            <a href="Pineapple cake.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://amyshealthybaking.com/wp-content/uploads/2016/02/slow-cooker-fudgy-dark-chocolate-brownies-4107.jpg" alt="Dark chocolate brownie">
+            <h3>Dark chocolate brownie</h3>
+            <p>Indulge in rich, decadent dark chocolate bliss</p>
+            <a href="dark chocolate brownie.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://chopnotch.com/wp-content/uploads/Triple-Chocolate-Brownies-1200x1200.jpg" alt="Triple chocolate brownie">
+            <h3>Triple chocolate brownie</h3>
+            <p>Rich, fudgy and triple chocolates</p>
+            <a href="Triple Chocolate cake.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://gimmedelicious.com/wp-content/uploads/2020/01/fudge-brownies-10.jpg" alt="Fudge brownie">
+            <h3>Fudge brownie</h3>
+            <p>Thick, rich, fudgy—pure chocolate brownie bliss</p>
+            <a href="Fudge brownie.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.ieyrIaOg8KC2CpaTCIw8sQHaLH?r=0&cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Choco chip brownie">
+            <h3>Choco chip brownie</h3>
+            <p>Decadent, gooey, chocolate chip loaded brownie delight</p>
+            <a href="Choco chip brownie.html" class="order-button">Order Now</a>
+        </div>
+        <div class="cake">
+            <img src="https://thecookbook.pk/wp-content/uploads/2019/07/sizzling-brownie-with-ice-cream-500x500-1-1275x1300.png" alt="Sizzling brownie">
+            <h3>Sizzling brownie</h3>
+            <p>Warm, gooey brownie with ice cream sizzle</p>
+            <a href="Sizzling brownie.html"class="order-button">Order Now</a>
+        </div>
+    </section>
+
+    <section id="reviews-section" class="review-section-container">
+        <div class="review-container">
+            <h2>Customer Reviews for Sweet Start Cake</h2>
+
+            <div class="review">
+                <div><span class="reviewer">Helin</span><span class="stars">★★★★★</span></div>
+                <div class="comment">The cake was absolutely delicious! Fresh and fluffy with perfect sweetness. Highly recommend.</div>
+            </div>
+
+            <div class="review">
+                <div><span class="reviewer">NITHIN★</span><span class="stars">★★★★☆</span></div>
+                <div class="comment">Great taste and timely delivery. Could improve on packaging but overall very satisfied.</div>
+            </div>
+
+            <div class="review">
+                <div><span class="reviewer">Kevin</span><span class="stars">★★★☆☆</span></div>
+                <div class="comment">Beautifully decorated and tasted amazing. Perfect for celebrations!</div>
+            </div>
+
+            <div class="review">
+                <div><span class="reviewer">Kaushi</span><span class="stars">★★★★★</span></div>
+                <div class="comment">Good cake but a bit dry this time. The flavor was nice though.</div>
+            </div>
+
+            <div class="review">
+                <div><span class="reviewer">Sanjay★</span><span class="stars">★★★★★</span></div>
+                <div class="comment">Exceptional quality and fluffy texture. Will order again for sure.</div>
+            </div>
+
+            <div class="review">
+                <div><span class="reviewer">Sabrin</span><span class="stars">★★★★★</span></div>
+                <div class="comment">Perfect sweetness and freshness. Loved every bite of the cake!</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="order-section">
+        <h2>Submit a Review</h2>
+        <form action="order-submit.php" method="POST" class="order-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="number" name="star" placeholder="no.of star (atmost 5 stars only)" min="1" max="5" required>
+            <textarea name="message" rows="5" placeholder="Your Review / Comments" required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form action="contact-submit.php" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Sweet Start. All rights reserved.</p>
+    </footer>
+</body>
+</html>
